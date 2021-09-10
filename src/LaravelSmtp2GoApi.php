@@ -8,7 +8,6 @@ use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Str;
 use RayNl\LaravelSmtp2go\Exceptions\LaravelSmtp2GoFilterNotAvailableException;
 use RayNl\LaravelSmtp2go\Exceptions\LaravelSmtp2GoNoApiKeyException;
-use RayNl\LaravelSmtp2go\Exceptions\LaravelSmtp2GoNoNextRecordsException;
 
 class LaravelSmtp2GoApi
 {
@@ -25,11 +24,12 @@ class LaravelSmtp2GoApi
     protected $searchFilters = [];
     protected $filters = [];
 
-    public function hasNext() : bool
+    public function hasNext(): bool
     {
         if ($this->content) {
             return Arr::get($this->content, 'data.continue_token') !== null;
         }
+
         return false;
     }
 
@@ -40,10 +40,11 @@ class LaravelSmtp2GoApi
 
             return $this->get();
         }
+
         return false;
     }
 
-    public function getContent() : Collection
+    public function getContent(): Collection
     {
         return $this->content;
     }
@@ -78,7 +79,7 @@ class LaravelSmtp2GoApi
         }
     }
 
-    private function getRequestData() : array
+    private function getRequestData(): array
     {
         if (empty(config('smtp2go.api_key'))) {
             throw new LaravelSmtp2GoNoApiKeyException();
@@ -91,7 +92,7 @@ class LaravelSmtp2GoApi
         return $this->request;
     }
 
-    public function where($field, $value) : LaravelSmtp2GoApi
+    public function where($field, $value): LaravelSmtp2GoApi
     {
         if (in_array($field, $this->filters)) {
             $this->request[$field] = $value;
@@ -103,5 +104,4 @@ class LaravelSmtp2GoApi
 
         return $this;
     }
-
 }
