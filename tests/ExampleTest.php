@@ -1,6 +1,6 @@
 <?php
 
-namespace VendorName\Skeleton\Tests;
+namespace RayNl\LaravelSmtp2goEmail\Tests;
 
 class ExampleTest extends TestCase
 {

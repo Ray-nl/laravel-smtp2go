@@ -1,17 +1,17 @@
 {
-    "name": ":vendor_slug/:package_slug",
-    "description": ":package_description",
+    "name": "ray-nl/laravel-smtp2go",
+    "description": "This is my package laravel-smtp2go",
     "keywords": [
-        ":vendor_name",
+        "Ray-nl",
         "laravel",
-        ":package_slug"
+        "laravel-smtp2go"
     ],
-    "homepage": "https://github.com/:vendor_slug/:package_slug",
+    "homepage": "https://github.com/ray-nl/laravel-smtp2go",
     "license": "MIT",
     "authors": [
         {
-            "name": ":author_name",
-            "email": "author@domain.com",
+            "name": "Sjoerd Rutten",
+            "email": "sjoed@ray.nl",
             "role": "Developer"
         }
     ],
@@ -30,13 +30,13 @@
     },
     "autoload": {
         "psr-4": {
-            "VendorName\\Skeleton\\": "src",
-            "VendorName\\Skeleton\\Database\\Factories\\": "database/factories"
+            "RayNl\\LaravelSmtp2go\\": "src",
+            "RayNl\\LaravelSmtp2go\\Database\\Factories\\": "database/factories"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "VendorName\\Skeleton\\Tests\\": "tests"
+            "RayNl\\LaravelSmtp2go\\Tests\\": "tests"
         }
     },
     "scripts": {
@@ -50,10 +50,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "VendorName\\Skeleton\\SkeletonServiceProvider"
+                "RayNl\\LaravelSmtp2go\\LaravelSmtp2goServiceProvider"
             ],
             "aliases": {
-                "Skeleton": "VendorName\\Skeleton\\SkeletonFacade"
+                "LaravelSmtp2goEmail": "RayNl\\LaravelSmtp2go\\Facades\\LaravelSmtp2goEmailFacade"
             }
         }
     },
